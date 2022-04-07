@@ -1,12 +1,10 @@
 import 'package:e_learning_app_ui/datas/category_json.dart';
-import 'package:e_learning_app_ui/datas/category_list_json.dart';
 import 'package:e_learning_app_ui/datas/courses_json.dart';
 import 'package:e_learning_app_ui/datas/user_profile.dart';
 import 'package:e_learning_app_ui/theme/colors.dart';
 import 'package:e_learning_app_ui/theme/padding.dart';
 import 'package:e_learning_app_ui/widgets/clipper.dart';
-// import 'package:e_learnig_clone/widgets/clipper.dart';
-// import 'package:e_learnig_clone/widgets/custom_categories_button.dart';
+ import 'package:e_learning_app_ui/widgets/custom_categories_button.dart';
  import 'package:e_learning_app_ui/widgets/custom_category_card.dart';
  import 'package:e_learning_app_ui/widgets/custom_course_card.dart';
  import 'package:e_learning_app_ui/widgets/custom_heading.dart';
@@ -35,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0.0,
           backgroundColor: Colors.transparent,
          // brightness: Brightness.dark,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
 
         ),
       ),
@@ -139,7 +137,6 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(right: 15.0, bottom: 20.0),
                   child: GestureDetector(
                     onTap: () {
-
                     },
                     child: CustomCourseCardExpand(
                       thumbNail: data['image'],
@@ -155,92 +152,95 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(height: spacer - 20.0),
-          //
-          // //categories
-          // Padding(
-          //   padding: const EdgeInsets.only(left: appPadding, right: appPadding),
-          //   child: CustomTitle(title: 'Categories'),
-          // ),
-          // SizedBox(height: smallSpacer),
-          // SingleChildScrollView(
-          //   scrollDirection: Axis.horizontal,
-          //   padding: const EdgeInsets.only(
-          //     left: appPadding,
-          //     right: appPadding - 10.0,
-          //   ),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Row(
-          //         children: List.generate(CategoryJson.length, (index) {
-          //           var data = AllCategories[index];
-          //           var getData = data['data'];
-          //           return Padding(
-          //             padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
-          //             child: GestureDetector(
-          //               onTap: () {
-          //
-          //               },
-          //               child: CustomCategoriesButton(
-          //                   title: CategoryJson[index]['title']),
-          //             ),
-          //           );
-          //         }),
-          //       ),
-          //       Row(
-          //         children: List.generate(CategoryJson.length, (index) {
-          //
-          //           return Padding(
-          //             padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
-          //             child: GestureDetector(
-          //               onTap: () {
-          //
-          //               },
-          //               child: CustomCategoriesButton(
-          //                   title: CategoryJson2[index]['title']),
-          //             ),
-          //           );
-          //         }),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // SizedBox(height: spacer - 10.0),
-          //
-          // //feature category
-          // Padding(
-          //   padding: const EdgeInsets.only(left: appPadding, right: appPadding),
-          //   child: CustomTitle(title: 'Design Courses'),
-          // ),
-          // SizedBox(height: smallSpacer),
-          // SingleChildScrollView(
-          //   scrollDirection: Axis.horizontal,
-          //   padding: const EdgeInsets.only(
-          //     left: appPadding,
-          //     right: appPadding - 10.0,
-          //   ),
-          //   child: Wrap(
-          //     children: List.generate(CoursesJson.length, (index) {
-          //       var data = CoursesJson[index];
-          //
-          //       return Padding(
-          //         padding: const EdgeInsets.only(right: 15.0, bottom: 20.0),
-          //         child: GestureDetector(
-          //
-          //
-          //           child: CustomCourseCardExpand(
-          //             thumbNail: data['image'],
-          //             videoAmount: data['video'],
-          //             title: data['title'],
-          //             userProfile: data['user_profile'],
-          //             userName: data['user_name'],
-          //             price: data['price'],
-          //           ),
-          //         ),
-          //       );
-          //     }),
-          //   ),
-          // ),
+
+          //categories
+          const Padding(
+            padding: EdgeInsets.only(left: appPadding, right: appPadding),
+            child: CustomTitle(title: 'Categories'),
+          ),
+          const SizedBox(height: smallSpacer),
+          Padding(
+            padding: const EdgeInsets.only(left: appPadding-15),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(
+                left: appPadding,
+                right: appPadding - 10.0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: List.generate(CategoryJson.length, (index) {
+                    //  var data = AllCategories[index];
+                     // var getData = data['data'];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: CustomCategoriesButton(
+                              title: CategoryJson[index]['title']),
+                        ),
+                      );
+                    }),
+                  ),
+                  Row(
+                    children: List.generate(CategoryJson.length, (index) {
+
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
+                        child: GestureDetector(
+                          onTap: () {
+
+                          },
+                          child: CustomCategoriesButton(
+                              title: CategoryJson2[index]['title']),
+                        ),
+                      );
+                    }),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: spacer - 10.0),
+
+
+
+          //feature category
+          const Padding(
+            padding: EdgeInsets.only(left: appPadding, right: appPadding),
+            child: CustomTitle(title: 'Design Courses'),
+          ),
+          const SizedBox(height: smallSpacer),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(
+              left: appPadding,
+              right: appPadding - 10.0,
+            ),
+            child: Wrap(
+              children: List.generate(CoursesJson.length, (index) {
+                var data = CoursesJson[index];
+
+                return Padding(
+                  padding: const EdgeInsets.only(right: 15.0, bottom: 20.0),
+                  child: GestureDetector(
+
+
+                    child: CustomCourseCardExpand(
+                      thumbNail: data['image'],
+                      videoAmount: data['video'],
+                      title: data['title'],
+                      userProfile: data['user_profile'],
+                      userName: data['user_name'],
+                      price: data['price'],
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
         ],
       ),
     );

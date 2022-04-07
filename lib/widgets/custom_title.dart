@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:e_learning_app_ui/theme/colors.dart';
-import 'package:e_learning_app_ui/theme/padding.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {
@@ -18,7 +16,7 @@ class CustomTitle extends StatelessWidget {
   final String route;
   final bool extend;
   final double fontSize;
-  final arg;
+  final dynamic arg;
 
   @override
   Widget build(BuildContext context) {
